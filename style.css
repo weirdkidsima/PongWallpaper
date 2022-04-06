@@ -1,0 +1,64 @@
+body {
+    background: #000000;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* области SVG-элементов */
+  svg {
+    width: 100vmin;
+    height: 75vmin;
+    border: 0px dotted #f3f9f4;
+    position: absolute;
+    background: #ec070702;
+  }
+  
+  /* общие параметры рисования платформы и кругов */
+  path,
+  circle {
+    stroke: #f3f9f4;
+    stroke-width: 4px;
+    fill: none;
+  }
+  
+  /* ставим задержку начала анимации для второго круга и платформы */
+  circle:nth-of-type(2) {
+    animation-delay: -2500ms;
+  }
+  path:nth-of-type(2) {
+    animation-delay: -1875ms;
+  }
+  
+  /* общая настройка анимации кругов  */
+  circle {
+    animation: circleAnimation 5000ms infinite linear;
+  }
+  
+  /* общая настройка анимации платформ */
+  path {
+    
+    animation: paddleAnimation 1250ms -625ms infinite alternate ease-in-out;
+  }
+  
+  /* раскадровка анимации кругов */
+  @keyframes circleAnimation {
+    25% {
+      transform: translate(-39px, -30.5px);
+    }
+    50% {
+      transform: translate(0px, -61px);
+    }
+    75% {
+      transform: translate(39px, -30.5px);
+    }
+  }
+  
+  /* раскадровка анимации платформы */
+  @keyframes paddleAnimation {
+    100% {
+      transform: translateY(60px);
+    }
+  }
